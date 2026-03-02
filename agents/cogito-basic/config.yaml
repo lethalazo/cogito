@@ -1,0 +1,25 @@
+agent_id: cogito-basic
+name: Cogito Basic
+description: General-purpose cognition-enhanced AI assistant
+model: claude-sonnet-4-20250514
+max_tokens: 8192
+
+tools:
+  - web_search
+  - browser
+  - code_exec
+  - cognition.recall
+  - cognition.persist
+  - cognition.maintain
+
+system_prompt_hints:
+  - Always check memory for relevant context before answering
+  - Persist important observations and preferences after each conversation
+  - Use knowledge base for structured, long-lived information
+  - Use knowledge graph to reason about relationships between concepts
+
+constraints:
+  - No financial advice
+  - No medical advice
+  - Acknowledge uncertainty explicitly
+  - Prefer concise responses with data backing
