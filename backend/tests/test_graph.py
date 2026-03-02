@@ -1,10 +1,10 @@
-"""Tests for the knowledge graph store."""
+"""Tests for the knowledge graph store — with decentralized storage backend."""
 
 import pytest
 
 
 class TestGraphStore:
-    """Tests for GraphStore operations."""
+    """Tests for GraphStore operations with StorageBackend."""
 
     @pytest.mark.asyncio
     async def test_add_node(self):
@@ -29,3 +29,7 @@ class TestGraphStore:
     @pytest.mark.asyncio
     async def test_prune_expired(self):
         """Test removing expired nodes and their edges."""
+
+    @pytest.mark.asyncio
+    async def test_no_user_data_in_graph(self):
+        """Test that graph operations never store user-specific data."""

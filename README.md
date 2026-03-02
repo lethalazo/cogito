@@ -1,38 +1,39 @@
 # Cogito
 
-**Autonomous personal superintelligence with persistent memory, a hard knowledge base, and a knowledge graph.**
+**Trustless, decentralized cognitive AI — with persistent memory, a hard knowledge base, and a knowledge graph.**
 
-Cogito is a cognitive AI agent framework. It doesn't just respond — it remembers, learns, and builds a structured understanding of you and the world over time. Every interaction makes it smarter.
+Cogito is a cognitive AI agent that doesn't just respond — it remembers, learns, and builds a structured understanding of you and the world over time. Every interaction makes it smarter. Your data stays yours — encrypted client-side, stored on IPFS, accessible only by your wallet. The agent's world model lives on Arweave — permanent, public, and permissionless.
 
-> Enterprise version is live internally. This is the open-source consumer version.
+Access Cogito through a unified interface — browser and app — like ChatGPT or Gemini, but with real cognition, real privacy, and no platform lock-in.
 
 ## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        Chat UI (Next.js)                        │
+│                   Unified Interface (Web + App)                  │
 └──────────────────────────────┬──────────────────────────────────┘
                                │
 ┌──────────────────────────────▼──────────────────────────────────┐
 │                      API Layer (FastAPI)                         │
-│                  /chat  /threads  /memory                        │
+│          /auth/nonce  /auth/verify  /chat  /threads  /memory     │
+│              SIWE wallet auth · JWT sessions                     │
 └──────────────────────────────┬──────────────────────────────────┘
                                │
 ┌──────────────────────────────▼──────────────────────────────────┐
-│                       Agent Framework                            │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐ │
-│  │  BaseAgent   │  │Cogito Basic │  │  Tools                  │ │
-│  │  (Claude SDK)│  │ (singleton) │  │  web_search, browser,   │ │
-│  │             │  │             │  │  code_exec, cognition   │ │
-│  └─────────────┘  └─────────────┘  └─────────────────────────┘ │
+│                       Cognitive Agents                            │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │  Cogito Basic (general-purpose)                             │ │
+│  │  + future specialist agents                                 │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│  Tools: web search, browser, code execution, cognition           │
 └──────────────────────────────┬──────────────────────────────────┘
                                │
 ┌──────────────────────────────▼──────────────────────────────────┐
 │                      Cognition Layer                             │
 │  ┌──────────────┐  ┌──────────────┐  ┌───────────────────────┐ │
 │  │   Memory      │  │ Knowledge    │  │  Knowledge Graph      │ │
-│  │   (JSONL)     │  │ Base (MD)    │  │  (Nodes + Edges)      │ │
-│  │              │  │             │  │                       │ │
+│  │  (encrypted)  │  │ Base         │  │  (Nodes + Edges)      │ │
+│  │              │  │ (public)     │  │  (public)             │ │
 │  │ observations  │  │ entities     │  │ concepts, entities,   │ │
 │  │ inferences    │  │ facts        │  │ relationships,        │ │
 │  │ preferences   │  │ models       │  │ cause-effect chains   │ │
@@ -41,28 +42,50 @@ Cogito is a cognitive AI agent framework. It doesn't just respond — it remembe
 │                                                                  │
 │  ┌──────────────┐  ┌──────────────┐  ┌───────────────────────┐ │
 │  │  Embeddings   │  │  Scoring     │  │  Maintenance          │ │
-│  │  (Voyage AI)  │  │  (relevance, │  │  (sleep phase,        │ │
-│  │              │  │  recency,    │  │  prune, consolidate)  │ │
-│  │              │  │  accuracy)   │  │                       │ │
+│  │ Private:      │  │  (relevance, │  │  (sleep phase,        │ │
+│  │  sentence-    │  │  recency,    │  │  prune, consolidate)  │ │
+│  │  transformers │  │  accuracy)   │  │                       │ │
+│  │ Public:       │  │              │  │                       │ │
+│  │  Voyage AI    │  │              │  │                       │ │
 │  └──────────────┘  └──────────────┘  └───────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
                                │
 ┌──────────────────────────────▼──────────────────────────────────┐
-│                      Identity Layer                              │
-│              SOUL.md (agent) + profile.yaml (user)               │
+│                   Decentralized Infrastructure                   │
+│  ┌──────────┐  ┌──────────┐  ┌───────────┐  ┌──────────────┐  │
+│  │   SIWE    │  │   IPFS    │  │  Arweave   │  │ Lit Protocol │  │
+│  │  wallet   │  │ encrypted │  │  permanent │  │ decentralized│  │
+│  │   auth    │  │ user data │  │ world model│  │ key mgmt     │  │
+│  └──────────┘  └──────────┘  └───────────┘  └──────────────┘  │
+│                                                                  │
+│  ┌──────────────────┐  ┌─────────────────────────────────────┐  │
+│  │  USDC Payments    │  │  Client-side AES-256-GCM Encryption │  │
+│  │  (Payproof rails) │  │  (wallet-derived keys via HKDF)     │  │
+│  └──────────────────┘  └─────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## Cognitive Components
+## What Makes Cogito Different
 
-### Memory (JSONL)
-Persistent, scored, multi-tier memory. Memories are observations, inferences, preferences, facts, and episodes — each scored for relevance, accuracy, and impact. Scoped to global, per-user, or per-agent tiers. Old memories decay; important ones consolidate.
+| Traditional AI chatbots | Cogito |
+|------------------------|--------|
+| Stateless — forgets everything | Persistent memory across conversations |
+| No real understanding | Knowledge base + knowledge graph = structured world model |
+| Platform lock-in | Decentralized — IPFS + Arweave, no single point of failure |
+| Centralized trust | Client-side encryption, wallet auth — platform never sees your data |
+| One-size-fits-all | Learns your preferences, adapts to you specifically |
+| Centralized identity | Wallet-based identity — anonymous, portable, self-sovereign |
 
-### Knowledge Base (Markdown + YAML frontmatter)
-Structured, long-lived knowledge. Entities, facts, models, and agent-written scripts stored as Markdown files with typed YAML frontmatter. Indexed with embeddings for semantic search. The agent's hard drive.
+## Privacy Model
 
-### Knowledge Graph (JSONL nodes + edges)
-Relational understanding. Typed nodes (concepts, entities, people, assets, events) connected by weighted edges (impacts, causes, related_to, owns). Enables reasoning about connections, second-order effects, and causal chains.
+Two data scopes with strict separation:
+
+| Scope | Storage | Encryption | Embeddings |
+|-------|---------|------------|------------|
+| **User data** (memories, preferences, threads) | IPFS (mutable, pinned) | AES-256-GCM, wallet-derived key | sentence-transformers (local, private) |
+| **Shared cognition** (KB, graph, world model) | Arweave (permanent) | None (public) | Voyage AI |
+
+User data is encrypted client-side before reaching the server. The platform never sees plaintext. See [docs/privacy-model.md](docs/privacy-model.md) for the full privacy model and threat model.
 
 ## Quick Start
 
@@ -71,7 +94,7 @@ Relational understanding. Typed nodes (concepts, entities, people, assets, event
 - Node.js 20+
 - [uv](https://github.com/astral-sh/uv) (Python package manager)
 - Anthropic API key
-- Voyage AI API key (for embeddings)
+- Voyage AI API key (for public embeddings)
 
 ### Backend
 ```bash
@@ -92,16 +115,19 @@ npm run dev
 ```
 cogito/
 ├── backend/cogito/          # Python backend
-│   ├── agent/               # Agent framework (BaseAgent, tools)
+│   ├── agent/               # Agent runtime (internal framework)
+│   ├── api/                 # FastAPI routes (SIWE auth + protected endpoints)
+│   ├── auth/                # Wallet authentication (SIWE + JWT sessions)
 │   ├── cognition/           # Memory, KB, Graph, embeddings, scoring
-│   ├── identity/            # SOUL.md + user profile loading
-│   ├── threads/             # Conversation thread management
-│   └── api/                 # FastAPI routes
-├── frontend/src/            # Next.js chat UI
-├── agents/                  # Agent definitions (SOUL.md + config)
-│   └── cogito-basic/        # General-purpose cognition-enhanced agent
-├── docs/                    # Architecture, specs, roadmap
-└── data/                    # Runtime storage (gitignored)
+│   ├── crypto/              # AES-256-GCM encryption, wallet-derived keys, Lit Protocol
+│   ├── identity/            # Agent identity + user profile loading
+│   ├── payments/            # USDC payments via Payproof
+│   ├── storage/             # Decentralized storage (IPFS, Arweave, local)
+│   └── threads/             # Conversation thread management
+├── frontend/src/            # Unified web interface
+├── agents/                  # Agent definitions (identity + config)
+│   └── cogito-basic/        # General-purpose cognitive agent
+└── docs/                    # Architecture, specs, privacy model, roadmap
 ```
 
 ## Tech Stack
@@ -109,24 +135,36 @@ cogito/
 | Layer | Technology |
 |-------|-----------|
 | LLM | Claude (Anthropic SDK) |
-| Embeddings | Voyage AI (voyage-3-lite) |
+| Embeddings (public) | Voyage AI (voyage-3-lite) |
+| Embeddings (private) | sentence-transformers (all-MiniLM-L6-v2) |
 | Backend | Python, FastAPI, Pydantic |
 | Frontend | Next.js, React, Tailwind CSS |
-| Storage | JSONL (memory, graph), Markdown (KB) |
+| Auth | SIWE (Sign-In with Ethereum) + JWT sessions |
+| Encryption | AES-256-GCM, HKDF-SHA256, Lit Protocol |
+| User storage | IPFS (encrypted, mutable) |
+| Shared storage | Arweave (permanent, public) |
+| Payments | USDC on Payproof rails |
 | Package management | uv (Python), npm (Node) |
 
 ## Roadmap
 
-| Phase | Focus | Auth | Privacy |
-|-------|-------|------|---------|
-| **1 — MVP** | Working cognition layer, Cogito Basic agent, simple tools, chat UI | API key | Centralized |
-| **2 — Multi-Agent** | Specialist agents, cross-invocation, adversarial pattern | Wallet-connect | Centralized |
-| **3 — Deep Cognition** | World model, second-order effects, cause-effect simulations | Wallet-connect | Client-side encryption |
-| **4 — Decentralized** | Cognitive portability, TEE inference, P2P, PAYG via USDC | Wallet-connect | Platform-blind |
-
-Decentralization is progressive: MVP ships centralized → auth decentralizes → data decentralizes → execution decentralizes.
+| Phase | Focus |
+|-------|-------|
+| **1 — MVP** | Working cognition layer, wallet auth (SIWE), client-side encryption, IPFS user storage, Arweave shared cognition, dual embeddings, unified web interface |
+| **2 — Specialist Agents** | Domain-specific agents, agent switching, cross-agent cognition |
+| **3 — Deep Cognition** | World model, second-order effects, cause-effect simulations |
+| **4 — Self-Hosted** | Self-hosted Cogito nodes, cognitive portability, P2P deployment, USDC payments |
 
 See [docs/roadmap.md](docs/roadmap.md) for the full roadmap.
+
+## Docs
+
+- [Architecture](docs/architecture.md) — System layers, data flow, tech stack
+- [Cognition Layer](docs/cognition-layer.md) — Memory, KB, Graph, scoring, maintenance
+- [Privacy Model](docs/privacy-model.md) — Encryption, key derivation, threat model
+- [Decentralization](docs/decentralization.md) — SIWE, IPFS, Arweave, Lit Protocol, self-hosted
+- [Agent Framework](docs/agent-framework.md) — Internal agent runtime (BaseAgent, tools, turn lifecycle)
+- [Roadmap](docs/roadmap.md) — Development phases
 
 ## License
 

@@ -1,19 +1,26 @@
-"""Knowledge graph store — nodes and edges backed by JSONL."""
+"""Knowledge graph store — nodes and edges on decentralized storage.
 
-from pathlib import Path
+The knowledge graph is part of the agent's shared cognition — the relational world model.
+Stored on Arweave (permanent, public) or local storage for dev/self-hosted.
+
+Like the KB, the graph is public and unencrypted — it contains world knowledge about
+relationships between concepts, not user-specific information.
+"""
+
 from typing import Any
+
+from cogito.storage.base import StorageBackend
 
 
 class GraphStore:
     """Manages the knowledge graph: typed nodes connected by weighted edges.
 
-    Nodes represent concepts, entities, assets, people, etc.
-    Edges represent relationships: impacts, causes, owns, related_to, etc.
-    Both are stored as JSONL files with embeddings for semantic search.
+    Uses a StorageBackend for persistence — Arweave for production (permanent, public),
+    local filesystem for development and self-hosted nodes.
     """
 
-    def __init__(self, data_dir: Path) -> None:
-        self.data_dir = data_dir
+    def __init__(self, storage: StorageBackend) -> None:
+        self.storage = storage
 
     async def add_node(
         self,

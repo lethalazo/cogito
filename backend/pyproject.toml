@@ -1,7 +1,7 @@
 [project]
 name = "cogito"
 version = "0.1.0"
-description = "Cognitive AI agent framework — autonomous personal superintelligence"
+description = "Decentralized cognitive AI agent framework — trustless, privacy-preserving"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 dependencies = [
@@ -12,6 +12,18 @@ dependencies = [
     "numpy>=1.26.0",
     "voyageai>=0.3.0",
     "pydantic>=2.0.0",
+    # Decentralized auth
+    "siwe>=4.0.0",
+    "pyjwt>=2.9.0",
+    "eth-account>=0.13.0",
+    "web3>=7.0.0",
+    # Encryption
+    "cryptography>=43.0.0",
+    # Decentralized storage
+    "ipfshttpclient2>=0.8.0",
+    "arweave-python-client>=1.0.0",
+    # Private embeddings (local model for user-scoped data)
+    "sentence-transformers>=3.0.0",
 ]
 
 [project.optional-dependencies]

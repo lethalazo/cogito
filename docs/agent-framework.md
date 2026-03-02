@@ -1,15 +1,17 @@
-# Agent Framework
+# Agent Framework (Internal)
+
+> This document describes the internal agent framework used to build and maintain Cogito's cognitive agents. Users interact with agents through the unified interface — they never see or interact with the framework directly.
 
 ## Overview
 
-Agents are the execution units of Cogito. Each agent wraps the Anthropic Claude SDK and is enhanced with tools and cognition.
+The agent framework is the internal Python tooling we use to build, test, and deploy Cogito's cognitive agents. Each agent is a singleton service — one agent definition serving all users, with wallet-based identity and client-side encryption for per-user data isolation.
 
 ## BaseAgent
 
 `BaseAgent` is the abstract base class for all agents. It handles:
-- Loading identity (SOUL.md + config.yaml)
+- Loading identity (SOUL.md + config)
 - Managing tools
-- Running the turn lifecycle
+- Running the turn lifecycle with encryption boundaries
 - Interfacing with the cognition layer
 
 ### Interface
@@ -18,10 +20,10 @@ Agents are the execution units of Cogito. Each agent wraps the Anthropic Claude 
 class BaseAgent:
     agent_id: str
     soul: str           # Loaded from SOUL.md
-    config: AgentConfig  # Loaded from config.yaml
+    config: AgentConfig  # Loaded from config
     tools: list[Tool]
 
-    async def run(self, message: str, thread_id: str, user_id: str) -> str:
+    async def run(self, message: str, thread_id: str, wallet_address: str) -> str:
         """Full turn: pre-turn → LLM → post-turn."""
 
     async def think(self, message: str, context: TurnContext) -> LLMResponse:
@@ -33,60 +35,60 @@ class BaseAgent:
 
 ## Turn Lifecycle
 
-Every agent turn follows this sequence:
+Every agent turn follows this sequence, with strict encryption boundaries:
 
-### 1. Pre-Turn: Inject Context
+### 1. Pre-Turn: Decrypt + Inject Context
 
-Before calling the LLM, the agent enriches the conversation with relevant context:
+Before calling the LLM, the agent fetches and decrypts user data:
 
 ```
-Input: user message + thread history
+Input: user message + thread history + wallet_address
   ↓
-Recall relevant memories (semantic search + scoring)
+Fetch encrypted user memories from IPFS → decrypt in-memory
   ↓
-Query KB for relevant entities
+Query shared KB from Arweave (public, no decryption needed)
   ↓
-Query graph for related concepts and connections
+Query shared graph from Arweave (public)
   ↓
-Load user profile (preferences, context)
+Fetch encrypted user preferences from IPFS → decrypt in-memory
   ↓
 Load agent identity (SOUL.md)
   ↓
 Build system prompt with all injected context
   ↓
-Output: enriched system prompt + message history + tools
+Output: TurnContext (wallet_address, encryption_key, decrypted data)
 ```
 
 ### 2. LLM Call
 
 Call Claude via the Anthropic SDK with:
-- System prompt (identity + injected context)
+- System prompt (identity + injected context, user data decrypted in-memory)
 - Message history (thread)
 - Available tools
 
 Claude may respond with text, tool calls, or both. Tool calls are executed and results fed back in a loop until Claude produces a final text response.
 
-### 3. Post-Turn: Extract and Persist
+### 3. Post-Turn: Extract + Encrypt
 
-After the LLM responds, the agent extracts learnings:
+After the LLM responds, the agent extracts and persists learnings:
 
 ```
 Input: full conversation turn (user message + agent response)
   ↓
-Extract observations ("user mentioned X")
+Extract observations ("user mentioned X") → encrypt → store on IPFS (user-scoped)
   ↓
-Extract inferences ("user likely interested in Y")
+Extract inferences ("user likely interested in Y") → encrypt → store on IPFS
   ↓
-Extract preferences ("user prefers Z")
+Extract preferences ("user prefers Z") → encrypt → store on IPFS
   ↓
-Identify new entities for KB
+Identify new world knowledge → store on Arweave (shared, unencrypted)
   ↓
-Identify new relationships for graph
-  ↓
-Store all extracted knowledge
+Identify new relationships → store on Arweave (shared, unencrypted)
   ↓
 Output: updated cognition state
 ```
+
+**Key principle:** User-specific learnings are encrypted and stored on IPFS. World knowledge goes to Arweave (public, unencrypted). User data never enters shared cognition.
 
 ## Tool System
 
@@ -102,22 +104,22 @@ Tools are functions that agents can call during a turn. Each tool has:
 | `web_search` | Search the web for information |
 | `browser` | Navigate to a URL and extract content |
 | `code_exec` | Execute Python code in a sandbox |
-| `cognition.recall` | Search memories by semantic query |
-| `cognition.persist` | Store a new memory or KB entity |
-| `cognition.maintain` | Trigger maintenance on specific memories |
+| `cognition.recall` | Search memories by semantic query (encryption-aware) |
+| `cognition.persist` | Store a new memory or KB entity (encryption-aware) |
+| `cognition.maintain` | Trigger maintenance on specific memories (encryption-aware) |
 
 ### Cognition Tools
 
-The cognition tools are special — they let the agent explicitly interact with its own cognition layer during a turn. This means Claude can:
-- **Recall**: "Let me check what I know about this user's preferences"
-- **Persist**: "I should remember that this user works at a crypto startup"
-- **Maintain**: "This memory seems outdated, let me update it"
+The cognition tools are encryption-aware — user-tier operations require the wallet address and encryption/decryption key from the TurnContext:
+- **Recall**: Fetches encrypted user memories → decrypts in-memory → returns results
+- **Persist**: Encrypts user-tier content → stores on IPFS
+- **Maintain**: Decrypts → updates → re-encrypts → stores
 
-This is in addition to the automatic pre-turn/post-turn cognition that happens on every turn.
+Shared cognition operations (KB writes, graph updates) are unencrypted.
 
 ## Cogito Basic
 
-Cogito Basic is the first concrete agent. It's a general-purpose, cognition-enhanced assistant.
+Cogito Basic is the first cognitive agent. General-purpose, cognition-enhanced, privacy-preserving.
 
 ### Spec
 
@@ -126,16 +128,9 @@ Cogito Basic is the first concrete agent. It's a general-purpose, cognition-enha
 | ID | `cogito-basic` |
 | Model | Claude Sonnet (default) |
 | Tools | web_search, browser, code_exec, cognition |
-| Identity | General-purpose assistant with persistent memory |
+| Identity | General-purpose cognitive assistant |
+| Privacy | Never stores user data in shared cognition |
 | Constraints | No financial advice, no medical advice, honest about limitations |
-
-### SOUL.md
-
-The SOUL.md file defines the agent's personality, values, and purpose. See `agents/cogito-basic/SOUL.md`.
-
-### config.yaml
-
-The config.yaml file defines the agent's tools, model, and constraints. See `agents/cogito-basic/config.yaml`.
 
 ## Claude SDK Integration
 

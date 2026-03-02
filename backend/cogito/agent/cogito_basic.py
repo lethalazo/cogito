@@ -10,12 +10,12 @@ class CogitoBasic(BaseAgent):
     a knowledge base, and a knowledge graph to provide contextual, personalized responses.
 
     This is a singleton agent — one instance per deployment, serving all users
-    with user-scoped memory isolation.
+    with wallet-based identity and client-side encryption for per-user data isolation.
     """
 
     def __init__(self) -> None:
         super().__init__(agent_id="cogito-basic")
 
-    async def run(self, message: str, thread_id: str, user_id: str) -> str:
+    async def run(self, message: str, thread_id: str, wallet_address: str) -> str:
         """Execute a full turn with cognition-enhanced context."""
         raise NotImplementedError

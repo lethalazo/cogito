@@ -2,6 +2,11 @@
 
 These tools let the agent explicitly interact with its own cognition layer
 during a turn, in addition to the automatic pre-turn/post-turn cognition.
+
+Privacy model:
+- User-tier operations require the wallet address and encryption/decryption key
+- Shared cognition operations (KB, graph) are public and unencrypted
+- The agent never stores user-specific data in shared cognition
 """
 
 from typing import Any
@@ -89,13 +94,24 @@ MAINTAIN_TOOL: dict[str, Any] = {
 }
 
 
-async def recall(query: str, tier: str | None = None, limit: int = 10) -> list[dict]:
+async def recall(
+    query: str,
+    tier: str | None = None,
+    limit: int = 10,
+    wallet_address: str | None = None,
+    decryption_key: bytes | None = None,
+) -> list[dict]:
     """Search memories and knowledge by semantic similarity.
+
+    User-tier recall requires wallet_address and decryption_key to access
+    encrypted memories.
 
     Args:
         query: The search query.
         tier: Optional memory tier filter.
         limit: Maximum results to return.
+        wallet_address: Wallet address for user-scoped recall.
+        decryption_key: AES-256 key for decrypting user-tier memories.
 
     Returns:
         List of matching memories/entities ranked by score.
@@ -108,14 +124,21 @@ async def persist(
     content: str,
     memory_type: str | None = None,
     tags: list[str] | None = None,
+    wallet_address: str | None = None,
+    encryption_key: bytes | None = None,
 ) -> dict:
     """Store a new memory or KB entity.
+
+    User-tier memories are encrypted with the provided key before storage.
+    KB entities are stored unencrypted in shared cognition.
 
     Args:
         type: "memory" or "kb_entity".
         content: The content to store.
         memory_type: Type of memory (if applicable).
         tags: Tags for categorization.
+        wallet_address: Wallet address for user-scoped memories.
+        encryption_key: AES-256 key for encrypting user-tier memories.
 
     Returns:
         The created entry.
@@ -128,14 +151,20 @@ async def maintain(
     action: str,
     new_content: str | None = None,
     accuracy_score: float | None = None,
+    wallet_address: str | None = None,
+    encryption_key: bytes | None = None,
 ) -> dict:
     """Perform maintenance on an existing memory.
+
+    User-tier maintenance requires wallet_address and encryption_key.
 
     Args:
         memory_id: The memory to maintain.
         action: "update_accuracy", "supersede", or "delete".
         new_content: New content for supersede.
         accuracy_score: New score for update_accuracy.
+        wallet_address: Wallet address for user-scoped memories.
+        encryption_key: AES-256 key for re-encrypting updated user-tier memories.
 
     Returns:
         The updated or deleted entry.

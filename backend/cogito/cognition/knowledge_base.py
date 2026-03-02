@@ -1,22 +1,30 @@
-"""Knowledge base store — structured knowledge as Markdown with YAML frontmatter."""
+"""Knowledge base store — structured knowledge on decentralized storage.
 
-from pathlib import Path
+The knowledge base is part of the agent's shared cognition — the world model.
+Stored on Arweave (permanent, public, immutable) or local storage for dev/self-hosted.
+
+KB entities are public and unencrypted — they contain world knowledge (entities, facts,
+models, scripts), never user-specific information. Self-hosted nodes read KB data from
+Arweave (read-only) to stay in sync with the shared world model.
+"""
+
 from typing import Any
+
+from cogito.storage.base import StorageBackend
 
 
 class KBStore:
-    """Manages the knowledge base: Markdown files with YAML frontmatter + JSONL index.
+    """Manages the knowledge base: Markdown files with YAML frontmatter.
 
-    The KB stores long-lived, structured knowledge — entities, facts, models, and scripts.
-    Each entry is a Markdown file with typed YAML frontmatter. A separate JSONL index
-    enables fast semantic search.
+    Uses a StorageBackend for persistence — Arweave for production (permanent, public),
+    local filesystem for development and self-hosted nodes.
     """
 
-    def __init__(self, data_dir: Path) -> None:
-        self.data_dir = data_dir
+    def __init__(self, storage: StorageBackend) -> None:
+        self.storage = storage
 
     async def read(self, entity_id: str) -> dict:
-        """Load a KB entity by ID.
+        """Load a KB entity by ID from storage.
 
         Args:
             entity_id: The entity ID (e.g., "kb_xxx").
@@ -35,7 +43,10 @@ class KBStore:
         numerical_facts: dict[str, Any] | None = None,
         metadata: dict[str, Any] | None = None,
     ) -> dict:
-        """Create or update a KB entity.
+        """Create or update a KB entity in storage.
+
+        On Arweave, updates create new transactions (append-only).
+        The latest transaction for a given entity ID is the current version.
 
         Args:
             content: The Markdown content body.
@@ -89,13 +100,18 @@ class KBStore:
     async def delete(self, entity_id: str) -> None:
         """Remove an entity and its index entry.
 
+        On Arweave, this marks the entity as deleted (append-only) rather than
+        physically removing it. On local storage, the file is deleted.
+
         Args:
             entity_id: The entity to delete.
         """
         raise NotImplementedError
 
     async def reindex(self) -> int:
-        """Rebuild all embeddings and the index file.
+        """Rebuild all embeddings and the index.
+
+        Uses public embedding model (Voyage AI) for shared cognition.
 
         Returns:
             Number of entities re-indexed.
