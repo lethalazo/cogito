@@ -8,7 +8,7 @@ import { SectionParticles } from "@/components/canvas/section-particles"
 const LAYERS = [
   {
     title: "Cognition Layer",
-    body: "Memory, Knowledge Base, and Knowledge Graph work together to give the AI persistent intelligence. Memories are scored by relevance, accuracy, and impact. The Knowledge Base stores structured world knowledge as versioned entities on permanent decentralized storage. The Knowledge Graph captures relationships between concepts, entities, and events — enabling second-order reasoning.",
+    body: "Memory, Knowledge Base, and Knowledge Graph work together to give the AI persistent intelligence. Memories are scored by relevance, accuracy, and impact. The Knowledge Base stores structured world knowledge as versioned entities on permanent storage. The Knowledge Graph captures relationships between concepts, entities, and events — enabling second-order reasoning.",
   },
   {
     title: "Privacy Architecture",

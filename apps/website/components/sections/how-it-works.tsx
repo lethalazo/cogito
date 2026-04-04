@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/shared/section-heading"
 import { SectionParticles } from "@/components/canvas/section-particles"
 
 const STEPS = [
-  { num: "01", title: "Connect Wallet", desc: "Your wallet is your identity. Sign in with Ethereum — no passwords, no emails." },
+  { num: "01", title: "Connect Wallet", desc: "Your wallet is your identity. One-click authentication — no passwords, no emails." },
   { num: "02", title: "Chat", desc: "The AI remembers, learns, and builds structured understanding over time." },
   { num: "03", title: "Data Stays Encrypted", desc: "Everything personal is encrypted with your wallet-derived key. Platform never sees plaintext." },
   { num: "04", title: "Knowledge Is Permanent", desc: "Shared cognition lives on permanent, public, permissionless infrastructure." },
