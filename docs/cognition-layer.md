@@ -11,7 +11,7 @@ The cognition layer enforces strict privacy boundaries between two data scopes:
 | **User-scoped** | User-tier memories, preferences, threads | IPFS (mutable) | AES-256-GCM, wallet-derived key | sentence-transformers (local) |
 | **Shared cognition** | KB, graph, agent/global memories | Arweave (permanent) | None (public) | Voyage AI |
 
-**User data never enters shared cognition.** This is enforced at the architecture level — user-scoped data flows through encrypted storage, while shared cognition flows through public storage.
+**User data never enters shared cognition.** This is enforced at the architecture level - user-scoped data flows through encrypted storage, while shared cognition flows through public storage.
 
 ## Three Cognitive Components
 
@@ -41,11 +41,11 @@ Memories are atomic units of learned state. They represent things the agent has 
 
 | Type | Description |
 |------|-------------|
-| `observation` | Direct observation from conversation — "User mentioned they work at a startup" |
-| `inference` | Derived conclusion — "User likely interested in fundraising given startup context" |
-| `preference` | Expressed or inferred preference — "User prefers data-backed responses" |
-| `fact` | Stated fact — "Bitcoin's max supply is 21 million" |
-| `episode` | Summary of a significant interaction — "Helped user debug a Python async issue" |
+| `observation` | Direct observation from conversation - "User mentioned they work at a startup" |
+| `inference` | Derived conclusion - "User likely interested in fundraising given startup context" |
+| `preference` | Expressed or inferred preference - "User prefers data-backed responses" |
+| `fact` | Stated fact - "Bitcoin's max supply is 21 million" |
+| `episode` | Summary of a significant interaction - "Helped user debug a Python async issue" |
 
 ### Memory Schema
 
@@ -94,10 +94,10 @@ score = (w_r * relevance) + (w_a * accuracy) + (w_i * impact) - (w_d * decay(age
 ```
 
 Where:
-- `relevance` — Cosine similarity between query embedding and memory embedding
-- `accuracy` — Confidence in the memory's correctness (starts at 1.0, can be downgraded)
-- `impact` — How important this memory is (preferences and key facts score higher)
-- `decay(age)` — Time-based decay function (memories fade unless reinforced)
+- `relevance` - Cosine similarity between query embedding and memory embedding
+- `accuracy` - Confidence in the memory's correctness (starts at 1.0, can be downgraded)
+- `impact` - How important this memory is (preferences and key facts score higher)
+- `decay(age)` - Time-based decay function (memories fade unless reinforced)
 
 Default weights: `w_r=0.4, w_a=0.25, w_i=0.2, w_d=0.15`
 
@@ -105,7 +105,7 @@ Default weights: `w_r=0.4, w_a=0.25, w_i=0.2, w_d=0.15`
 
 ## Knowledge Base
 
-The knowledge base stores long-lived, structured knowledge as Markdown files with typed YAML frontmatter. This is the agents' shared world model — stored on Arweave, permanent and public. It contains no user-specific information.
+The knowledge base stores long-lived, structured knowledge as Markdown files with typed YAML frontmatter. This is the agents' shared world model - stored on Arweave, permanent and public. It contains no user-specific information.
 
 ### KB Entity Types
 
@@ -141,7 +141,7 @@ Bitcoin is a decentralized cryptocurrency created in 2009 by Satoshi Nakamoto.
 | Operation | Description |
 |-----------|-------------|
 | `read(id)` | Load a KB entity from Arweave by ID |
-| `write(entity)` | Store/update KB entity on Arweave (append-only — new transaction) |
+| `write(entity)` | Store/update KB entity on Arweave (append-only - new transaction) |
 | `search(query)` | Semantic search using public embeddings (Voyage AI) |
 | `list(type, tags)` | List entities matching filters |
 | `delete(id)` | Mark as deleted on Arweave (append-only) |
@@ -151,7 +151,7 @@ Bitcoin is a decentralized cryptocurrency created in 2009 by Satoshi Nakamoto.
 
 ## Knowledge Graph
 
-The knowledge graph captures relationships between concepts. Stored on Arweave as part of the shared world model — permanent, public, no user-specific data.
+The knowledge graph captures relationships between concepts. Stored on Arweave as part of the shared world model - permanent, public, no user-specific data.
 
 ### Node and Edge Types
 
@@ -180,7 +180,7 @@ The knowledge graph captures relationships between concepts. Stored on Arweave a
 | Private (user data) | sentence-transformers (all-MiniLM-L6-v2) | Locally on the server | User data never leaves the server |
 | Public (shared cognition) | Voyage AI (voyage-3-lite) | External API | Data is public anyway |
 
-User data embeddings are stored encrypted alongside the data — they never touch external APIs.
+User data embeddings are stored encrypted alongside the data - they never touch external APIs.
 
 ---
 
@@ -188,9 +188,9 @@ User data embeddings are stored encrypted alongside the data — they never touc
 
 All cognitive components have temporal awareness:
 
-- **Memories** have `created_at`, `last_accessed`, and `age` — they decay over time unless reinforced by access
-- **KB entities** have `created_at`, `updated_at`, and optional `valid_until` — they can expire
-- **Graph nodes and edges** have `created_at` and optional `valid_until` — relationships can expire
+- **Memories** have `created_at`, `last_accessed`, and `age` - they decay over time unless reinforced by access
+- **KB entities** have `created_at`, `updated_at`, and optional `valid_until` - they can expire
+- **Graph nodes and edges** have `created_at` and optional `valid_until` - relationships can expire
 
 ---
 
@@ -203,7 +203,7 @@ The sleep phase runs in two modes:
 2. Prune expired graph nodes and edges
 3. Strengthen reinforced graph edges
 
-### User-tier maintenance (active sessions only — requires decryption key)
+### User-tier maintenance (active sessions only - requires decryption key)
 1. Recalculate composite scores with updated decay
 2. Prune memories below threshold
 3. Consolidate similar memories into stronger entries

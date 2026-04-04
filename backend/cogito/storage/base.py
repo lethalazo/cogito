@@ -1,8 +1,8 @@
 """Abstract base classes for decentralized storage backends.
 
 Two backend categories:
-- MutableStorageBackend (IPFS, local) — for user data that can be updated and deleted
-- ImmutableStorageBackend (Arweave) — for shared cognition that is permanent and append-only
+- MutableStorageBackend (IPFS, local) - for user data that can be updated and deleted
+- ImmutableStorageBackend (Arweave) - for shared cognition that is permanent and append-only
 """
 
 from abc import ABC, abstractmethod
@@ -34,7 +34,7 @@ class StorageBackend(ABC):
             key: The key or content identifier.
 
         Returns:
-            The raw bytes (still encrypted for user-scoped data — caller must decrypt).
+            The raw bytes (still encrypted for user-scoped data - caller must decrypt).
         """
         ...
 
@@ -76,7 +76,7 @@ class MutableStorageBackend(StorageBackend):
     """Storage backend that supports updates and mutable references.
 
     Used for IPFS (via IPNS for mutable pointers) and local filesystem.
-    User-scoped data lives here — encrypted, pinned, and updatable.
+    User-scoped data lives here - encrypted, pinned, and updatable.
     """
 
     @abstractmethod
@@ -109,7 +109,7 @@ class MutableStorageBackend(StorageBackend):
 class ImmutableStorageBackend(StorageBackend):
     """Storage backend for permanent, append-only data.
 
-    Used for Arweave. Shared cognition (KB, graph, world model) lives here —
+    Used for Arweave. Shared cognition (KB, graph, world model) lives here -
     public, permanent, and queryable by tags.
     """
 
@@ -126,5 +126,5 @@ class ImmutableStorageBackend(StorageBackend):
         ...
 
     async def delete(self, key: str) -> None:
-        """No-op — immutable storage cannot delete data."""
+        """No-op - immutable storage cannot delete data."""
         pass

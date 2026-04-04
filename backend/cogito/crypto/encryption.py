@@ -9,7 +9,7 @@ Encryption flow:
 3. Data is encrypted with AES-256-GCM using a random nonce
 4. Encrypted payload (nonce + ciphertext + tag) is stored on IPFS/local
 
-Decryption is the reverse — only the wallet holder can derive the key.
+Decryption is the reverse - only the wallet holder can derive the key.
 """
 
 from dataclasses import dataclass

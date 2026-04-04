@@ -1,9 +1,9 @@
-"""Embedding utilities — dual model for privacy-preserving semantic search.
+"""Embedding utilities - dual model for privacy-preserving semantic search.
 
 Two embedding scopes:
-- PUBLIC: Voyage AI (voyage-3-lite) — for shared cognition (KB, graph, world model).
+- PUBLIC: Voyage AI (voyage-3-lite) - for shared cognition (KB, graph, world model).
   High-quality embeddings via external API. Data is public anyway, so no privacy concern.
-- PRIVATE: sentence-transformers (all-MiniLM-L6-v2) — for user-scoped data (memories,
+- PRIVATE: sentence-transformers (all-MiniLM-L6-v2) - for user-scoped data (memories,
   preferences). Runs locally, no data leaves the server. Embeddings are computed on
   already-decrypted data in memory and are stored encrypted alongside the data.
 

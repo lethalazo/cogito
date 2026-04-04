@@ -2,7 +2,7 @@
 
 ## Overview
 
-Cogito is a layered, decentralized system. Users interact through a unified interface. Behind it, cognitive agents provide intelligent, memory-enhanced responses. The infrastructure is trustless — wallet-based auth, client-side encryption, and decentralized storage ensure users don't need to trust the platform with their data.
+Cogito is a layered, decentralized system. Users interact through a unified interface. Behind it, cognitive agents provide intelligent, memory-enhanced responses. The infrastructure is trustless - wallet-based auth, client-side encryption, and decentralized storage ensure users don't need to trust the platform with their data.
 
 ```
 Unified Interface → API Layer (SIWE auth) → Cognitive Agents → Cognition Layer → Decentralized Storage (IPFS + Arweave)
@@ -11,32 +11,32 @@ Unified Interface → API Layer (SIWE auth) → Cognitive Agents → Cognition L
 ## Layers
 
 ### Unified Interface (Frontend)
-A single interface — web and app — for accessing all Cogito agents. Like ChatGPT or Gemini, but with real cognition, real privacy, and no platform lock-in. Users authenticate with their wallet and interact with agents through conversations.
+A single interface - web and app - for accessing all Cogito agents. Like ChatGPT or Gemini, but with real cognition, real privacy, and no platform lock-in. Users authenticate with their wallet and interact with agents through conversations.
 
 ### API Layer
 FastAPI server with SIWE wallet authentication:
 
 **Auth endpoints (public):**
-- `GET /auth/nonce` — Get a nonce for SIWE authentication
-- `POST /auth/verify` — Verify SIWE signature, get JWT session
-- `POST /auth/logout` — Revoke session
+- `GET /auth/nonce` - Get a nonce for SIWE authentication
+- `POST /auth/verify` - Verify SIWE signature, get JWT session
+- `POST /auth/logout` - Revoke session
 
 **Protected endpoints (require wallet session):**
-- `POST /chat` — Send a message, get a response
-- `GET /threads` — List conversation threads
-- `GET /threads/{id}` — Get thread history
-- `GET /memory` — Query memories
-- `POST /memory` — Store a memory
+- `POST /chat` - Send a message, get a response
+- `GET /threads` - List conversation threads
+- `GET /threads/{id}` - Get thread history
+- `GET /memory` - Query memories
+- `POST /memory` - Store a memory
 
 ### Cognitive Agents
-Agents are the intelligence layer. Each agent is a singleton service — one agent definition serving all users, with strict per-user data isolation enforced by wallet-based identity and client-side encryption.
+Agents are the intelligence layer. Each agent is a singleton service - one agent definition serving all users, with strict per-user data isolation enforced by wallet-based identity and client-side encryption.
 
 Each agent has:
-- **Identity** — Personality, values, and purpose (SOUL.md + config)
-- **Tools** — Web search, browser, code execution, cognition
-- **Turn lifecycle** — Pre-turn (decrypt + inject) → LLM call → post-turn (extract + encrypt)
+- **Identity** - Personality, values, and purpose (SOUL.md + config)
+- **Tools** - Web search, browser, code execution, cognition
+- **Turn lifecycle** - Pre-turn (decrypt + inject) → LLM call → post-turn (extract + encrypt)
 
-The internal agent framework (Python) wraps the Anthropic Claude SDK. Users never see the framework — they interact with agents through the unified interface.
+The internal agent framework (Python) wraps the Anthropic Claude SDK. Users never see the framework - they interact with agents through the unified interface.
 
 ### Cognition Layer
 Three storage systems that give agents persistent intelligence:
@@ -48,9 +48,9 @@ Three storage systems that give agents persistent intelligence:
 | Knowledge Graph | Arweave | None (public) | Shared world model |
 
 Supporting subsystems:
-- **Embeddings** — Dual model: sentence-transformers (private, local) + Voyage AI (public)
-- **Scoring** — Relevance, recency, accuracy, and impact scoring for memory retrieval
-- **Maintenance** — Sleep phase: prune decayed memories, consolidate related ones, update graph
+- **Embeddings** - Dual model: sentence-transformers (private, local) + Voyage AI (public)
+- **Scoring** - Relevance, recency, accuracy, and impact scoring for memory retrieval
+- **Maintenance** - Sleep phase: prune decayed memories, consolidate related ones, update graph
 
 ### Decentralized Infrastructure
 

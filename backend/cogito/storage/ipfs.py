@@ -1,4 +1,4 @@
-"""IPFS storage backend — encrypted user data on the decentralized web.
+"""IPFS storage backend - encrypted user data on the decentralized web.
 
 User-scoped data (memories, preferences, threads) is encrypted client-side with
 AES-256-GCM using a wallet-derived key, then stored on IPFS. IPNS provides mutable
@@ -20,7 +20,7 @@ from cogito.storage.base import MutableStorageBackend
 class IPFSStorage(MutableStorageBackend):
     """IPFS-backed mutable storage for encrypted user data.
 
-    All data stored through this backend should already be encrypted —
+    All data stored through this backend should already be encrypted -
     this layer handles content-addressing and pinning, not encryption.
 
     Requires an IPFS node (local or remote pinning service like Pinata/web3.storage).

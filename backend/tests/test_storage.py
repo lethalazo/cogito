@@ -32,7 +32,7 @@ class TestLocalStorage:
 
 
 class TestIPFSStorage:
-    """Tests for IPFS storage backend (stub — requires IPFS node)."""
+    """Tests for IPFS storage backend (stub - requires IPFS node)."""
 
     @pytest.mark.asyncio
     async def test_store_returns_cid(self):
@@ -52,7 +52,7 @@ class TestIPFSStorage:
 
 
 class TestArweaveStorage:
-    """Tests for Arweave storage backend (stub — requires Arweave wallet)."""
+    """Tests for Arweave storage backend (stub - requires Arweave wallet)."""
 
     @pytest.mark.asyncio
     async def test_store_returns_tx_id(self):

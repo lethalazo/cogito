@@ -60,7 +60,7 @@ export function ProblemSection() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="prose-body mb-8"
         >
-          The platforms that do retain your data do so on their terms —
+          The platforms that do retain your data do so on their terms -
           centralized, unencrypted, used for training. You&apos;re locked into
           one provider. Your conversations feed the machine. You have no
           portability, no privacy, and no ownership.
@@ -74,7 +74,7 @@ export function ProblemSection() {
           className="prose-body"
         >
           The intelligence is commoditized. What&apos;s missing is{" "}
-          <span className="text-accent font-medium">cognition</span> — the
+          <span className="text-accent font-medium">cognition</span> - the
           ability to remember, learn, and build understanding over time. That
           requires a fundamentally different architecture.
         </motion.p>

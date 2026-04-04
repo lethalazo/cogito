@@ -1,10 +1,10 @@
-"""Maintenance subsystem — sleep phase, pruning, and consolidation.
+"""Maintenance subsystem - sleep phase, pruning, and consolidation.
 
 User-tier maintenance (pruning/consolidating user memories) only runs during active
 sessions when the user's decryption key is available. The platform cannot perform
 maintenance on encrypted user data without the key.
 
-Shared cognition maintenance (KB reindexing, graph pruning) runs independently —
+Shared cognition maintenance (KB reindexing, graph pruning) runs independently -
 this data is public and unencrypted.
 """
 
@@ -19,7 +19,7 @@ async def sleep_phase(
         1. Recalculate composite scores with updated decay
         2. Prune memories below threshold
         3. Consolidate clusters of similar memories
-        4. Update graph — strengthen reinforced edges, prune expired nodes
+        4. Update graph - strengthen reinforced edges, prune expired nodes
         5. Re-index KB if needed
 
     User-tier maintenance requires wallet_address and decryption_key. If not provided,

@@ -1,7 +1,7 @@
-"""USDC payment verification — on-chain payment verification via Payproof rails.
+"""USDC payment verification - on-chain payment verification via Payproof rails.
 
 Cogito uses USDC for pay-as-you-go pricing. Users pay per interaction or via
-prepaid balance. Payment verification happens on-chain — no payment processor,
+prepaid balance. Payment verification happens on-chain - no payment processor,
 no credit cards, no intermediaries.
 
 Payproof provides the payment infrastructure: payment intent creation, on-chain

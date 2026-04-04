@@ -1,10 +1,10 @@
 # Agent Framework (Internal)
 
-> This document describes the internal agent framework used to build and maintain Cogito's cognitive agents. Users interact with agents through the unified interface — they never see or interact with the framework directly.
+> This document describes the internal agent framework used to build and maintain Cogito's cognitive agents. Users interact with agents through the unified interface - they never see or interact with the framework directly.
 
 ## Overview
 
-The agent framework is the internal Python tooling we use to build, test, and deploy Cogito's cognitive agents. Each agent is a singleton service — one agent definition serving all users, with wallet-based identity and client-side encryption for per-user data isolation.
+The agent framework is the internal Python tooling we use to build, test, and deploy Cogito's cognitive agents. Each agent is a singleton service - one agent definition serving all users, with wallet-based identity and client-side encryption for per-user data isolation.
 
 ## BaseAgent
 
@@ -110,7 +110,7 @@ Tools are functions that agents can call during a turn. Each tool has:
 
 ### Cognition Tools
 
-The cognition tools are encryption-aware — user-tier operations require the wallet address and encryption/decryption key from the TurnContext:
+The cognition tools are encryption-aware - user-tier operations require the wallet address and encryption/decryption key from the TurnContext:
 - **Recall**: Fetches encrypted user memories → decrypts in-memory → returns results
 - **Persist**: Encrypts user-tier content → stores on IPFS
 - **Maintain**: Decrypts → updates → re-encrypts → stores

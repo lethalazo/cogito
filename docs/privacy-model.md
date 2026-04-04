@@ -17,11 +17,11 @@ Cogito separates data into two scopes with fundamentally different privacy prope
 - **Profile**: User settings and preferences
 
 ### Privacy guarantees
-- **Encrypted client-side** — Data is encrypted before reaching the server using AES-256-GCM
-- **Wallet-derived key** — Encryption key is derived from a wallet signature via HKDF-SHA256
-- **Platform-blind** — The server never sees plaintext user data
-- **Private embeddings** — User data is embedded using a local model (sentence-transformers), never sent to external APIs
-- **Per-user isolation** — Each wallet's data is cryptographically separated
+- **Encrypted client-side** - Data is encrypted before reaching the server using AES-256-GCM
+- **Wallet-derived key** - Encryption key is derived from a wallet signature via HKDF-SHA256
+- **Platform-blind** - The server never sees plaintext user data
+- **Private embeddings** - User data is embedded using a local model (sentence-transformers), never sent to external APIs
+- **Per-user isolation** - Each wallet's data is cryptographically separated
 
 ### Session data flow
 
@@ -38,14 +38,14 @@ During an active session:
 ## Shared Cognition
 
 ### What's in this scope
-- **Knowledge base**: Entities, facts, models, scripts — world knowledge
-- **Knowledge graph**: Concepts, relationships, causality — relational world model
-- **Agent state**: Agent-tier memories — things the agent has learned about how to be effective
+- **Knowledge base**: Entities, facts, models, scripts - world knowledge
+- **Knowledge graph**: Concepts, relationships, causality - relational world model
+- **Agent state**: Agent-tier memories - things the agent has learned about how to be effective
 
 ### Privacy guarantees
-- **No user data ever enters shared cognition** — This is enforced at the architecture level
-- **Public and permanent** — Stored on Arweave, readable by anyone
-- **Public embeddings** — Embedded using Voyage AI (the data is public anyway)
+- **No user data ever enters shared cognition** - This is enforced at the architecture level
+- **Public and permanent** - Stored on Arweave, readable by anyone
+- **Public embeddings** - Embedded using Voyage AI (the data is public anyway)
 
 ### What never goes into shared cognition
 - User names, wallet addresses, or any PII
@@ -62,7 +62,7 @@ Embeddings are a privacy concern because they can partially reconstruct the sour
 | User memories, preferences | sentence-transformers (all-MiniLM-L6-v2) | Runs locally, no data leaves the server |
 | KB entities, graph nodes | Voyage AI (voyage-3-lite) | Data is public anyway |
 
-User data embeddings are stored encrypted alongside the data — they never touch external APIs.
+User data embeddings are stored encrypted alongside the data - they never touch external APIs.
 
 ## Encryption Details
 
@@ -80,7 +80,7 @@ User data embeddings are stored encrypted alongside the data — they never touc
 
 ### Lit Protocol (Advanced)
 - Decentralized key management for access control conditions
-- Threshold cryptography — no single node has the full key
+- Threshold cryptography - no single node has the full key
 - Supports wallet ownership checks, token gating, and programmable conditions
 
 ## Threat Model

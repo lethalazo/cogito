@@ -33,7 +33,7 @@ export function Opening() {
       {/* Subtle center glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,99,94,0.04)_0%,_transparent_50%)] z-[1]" />
 
-      {/* Edge vignette — fade to cream */}
+      {/* Edge vignette - fade to cream */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_25%,_rgba(250,247,242,0.75)_100%)] z-[1]" />
 
       {/* Content */}

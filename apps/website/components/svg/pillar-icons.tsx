@@ -170,7 +170,7 @@ function DecentralizationIcon() {
             transition={{ duration: 0.3, delay: 0.5 + i * 0.15 }}
           />
         ))}
-        {/* Connection lines — mesh, no central hub */}
+        {/* Connection lines - mesh, no central hub */}
         {[
           "M 20 24 L 60 24", "M 20 56 L 60 56",
           "M 20 24 L 20 56", "M 60 24 L 60 56",

@@ -1,4 +1,4 @@
-"""Encryption and key management — client-side encryption for user data privacy."""
+"""Encryption and key management - client-side encryption for user data privacy."""
 
 from cogito.crypto.encryption import (
     EncryptedPayload,

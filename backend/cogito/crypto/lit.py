@@ -1,4 +1,4 @@
-"""Lit Protocol integration — decentralized access control and key management.
+"""Lit Protocol integration - decentralized access control and key management.
 
 Lit Protocol provides decentralized encryption and access control without a centralized
 key custodian. It uses a network of nodes to enforce access conditions (e.g., "only the
@@ -7,7 +7,7 @@ wallet owner can decrypt this data") without any single node having the full key
 Use cases in Cogito:
 - Encrypting user data with access conditions (only wallet owner can decrypt)
 - Sharing encrypted data with specific wallets (future: shared cognition between users)
-- Decentralized key management — no centralized key server to trust or compromise
+- Decentralized key management - no centralized key server to trust or compromise
 """
 
 from dataclasses import dataclass, field

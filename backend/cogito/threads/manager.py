@@ -1,6 +1,6 @@
-"""Thread manager — create, retrieve, and manage conversation threads.
+"""Thread manager - create, retrieve, and manage conversation threads.
 
-Threads are user-scoped data — stored encrypted on IPFS (or local storage for
+Threads are user-scoped data - stored encrypted on IPFS (or local storage for
 self-hosted nodes). Only the wallet holder can access their threads.
 """
 
@@ -13,7 +13,7 @@ class ThreadManager:
     """Manages conversation threads and their message history.
 
     Uses a StorageBackend for persistence. Thread data is encrypted client-side
-    before storage — the platform never sees plaintext conversation history.
+    before storage - the platform never sees plaintext conversation history.
     """
 
     def __init__(self, storage: StorageBackend) -> None:

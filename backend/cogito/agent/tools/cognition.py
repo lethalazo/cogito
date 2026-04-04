@@ -1,4 +1,4 @@
-"""Cognition tools — recall, persist, and maintain cognitive state.
+"""Cognition tools - recall, persist, and maintain cognitive state.
 
 These tools let the agent explicitly interact with its own cognition layer
 during a turn, in addition to the automatic pre-turn/post-turn cognition.
@@ -44,7 +44,7 @@ PERSIST_TOOL: dict[str, Any] = {
             "type": {
                 "type": "string",
                 "enum": ["memory", "kb_entity"],
-                "description": "What to persist — a memory or a KB entity.",
+                "description": "What to persist - a memory or a KB entity.",
             },
             "content": {
                 "type": "string",

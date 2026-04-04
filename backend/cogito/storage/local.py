@@ -1,10 +1,10 @@
-"""Local filesystem storage backend — for development and self-hosted nodes.
+"""Local filesystem storage backend - for development and self-hosted nodes.
 
 Implements MutableStorageBackend using the local filesystem. Data is stored as files
 under a configurable root directory, preserving the same key structure used by IPFS.
 
 In production self-hosted deployments, this backend stores encrypted user data locally
-instead of pinning to IPFS — the user's node is their own infrastructure.
+instead of pinning to IPFS - the user's node is their own infrastructure.
 """
 
 from pathlib import Path
@@ -16,7 +16,7 @@ from cogito.storage.base import MutableStorageBackend
 class LocalStorage(MutableStorageBackend):
     """Filesystem-backed mutable storage for dev and self-hosted deployments.
 
-    Keys map to file paths under the root directory. Data is stored as raw bytes —
+    Keys map to file paths under the root directory. Data is stored as raw bytes -
     encryption is handled by the caller (crypto module) before reaching this layer.
     """
 
@@ -52,5 +52,5 @@ class LocalStorage(MutableStorageBackend):
         raise NotImplementedError
 
     async def resolve(self, mutable_ref: str) -> str:
-        """Identity resolution — local keys are already resolved."""
+        """Identity resolution - local keys are already resolved."""
         raise NotImplementedError

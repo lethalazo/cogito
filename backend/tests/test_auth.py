@@ -1,4 +1,4 @@
-"""Tests for wallet authentication — SIWE and session management."""
+"""Tests for wallet authentication - SIWE and session management."""
 
 import pytest
 

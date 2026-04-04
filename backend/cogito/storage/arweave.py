@@ -1,13 +1,13 @@
-"""Arweave storage backend — permanent, immutable shared cognition.
+"""Arweave storage backend - permanent, immutable shared cognition.
 
 Shared cognition (knowledge base, knowledge graph, world model) is stored on Arweave
-for permanent, censorship-resistant access. This data is public and unencrypted — it's
+for permanent, censorship-resistant access. This data is public and unencrypted - it's
 the agent's world model, containing no user-specific information.
 
 Data is tagged for queryability (entity type, content type, agent ID, etc.) and can be
 retrieved by transaction ID or queried via GraphQL on the Arweave gateway.
 
-Self-hosted nodes read shared cognition from Arweave (read-only) — they don't need to
+Self-hosted nodes read shared cognition from Arweave (read-only) - they don't need to
 trust any central server for the agent's knowledge.
 """
 
@@ -19,7 +19,7 @@ from cogito.storage.base import ImmutableStorageBackend
 class ArweaveStorage(ImmutableStorageBackend):
     """Arweave-backed immutable storage for shared cognition.
 
-    Data stored here is permanent and public. No encryption — this is the agent's
+    Data stored here is permanent and public. No encryption - this is the agent's
     world model, not user data. Tagged for GraphQL queryability.
 
     Requires an Arweave wallet (JWK) for writing. Reading is permissionless.

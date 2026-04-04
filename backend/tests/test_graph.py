@@ -1,4 +1,4 @@
-"""Tests for the knowledge graph store — with decentralized storage backend."""
+"""Tests for the knowledge graph store - with decentralized storage backend."""
 
 import pytest
 

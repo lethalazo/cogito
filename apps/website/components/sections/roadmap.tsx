@@ -10,23 +10,23 @@ import { cn } from "@/lib/utils"
 const PHASES = [
   {
     date: "2026",
-    title: "MVP — Trustless Cognitive AI",
+    title: "MVP - Trustless Cognitive AI",
     status: "active" as const,
     items: [
-      "Working cognition layer — memory, knowledge base, knowledge graph",
-      "Wallet authentication — your wallet is your identity",
-      "Client-side encryption — platform never sees plaintext",
+      "Working cognition layer - memory, knowledge base, knowledge graph",
+      "Wallet authentication - your wallet is your identity",
+      "Client-side encryption - platform never sees plaintext",
       "Decentralized user storage + permanent shared cognition",
-      "Dual embedding model — private local + public API",
+      "Dual embedding model - private local + public API",
       "Unified web interface",
     ],
   },
   {
-    date: "2026–2027",
+    date: "2026-2027",
     title: "Specialist Agents",
     status: "upcoming" as const,
     items: [
-      "Domain-specific cognitive agents — research, code, finance",
+      "Domain-specific cognitive agents - research, code, finance",
       "Agent switching in the unified interface",
       "Cross-agent shared cognition on permanent storage",
       "Agent-to-agent invocation",
@@ -37,9 +37,9 @@ const PHASES = [
     title: "Deep Cognition",
     status: "upcoming" as const,
     items: [
-      "World model — rich graph of entities, relationships, influence",
+      "World model - rich graph of entities, relationships, influence",
       "Second-order reasoning and cause-effect simulation",
-      "Temporal reasoning — trends, cycles, time-dependent relationships",
+      "Temporal reasoning - trends, cycles, time-dependent relationships",
     ],
   },
   {
@@ -48,7 +48,7 @@ const PHASES = [
     status: "upcoming" as const,
     items: [
       "Run your own Cogito node",
-      "Cognitive portability — export and import your cognition",
+      "Cognitive portability - export and import your cognition",
       "TEE-based inference for privacy",
       "P2P node discovery and communication",
       "USDC micropayments for compute via Payproof",
@@ -111,7 +111,7 @@ export function RoadmapSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.1 + j * 0.05 }}
-                      className="text-sm text-muted-foreground leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-accent-dim/40"
+                      className="text-sm text-muted-foreground leading-relaxed pl-4 relative before:content-['-'] before:absolute before:left-0 before:text-accent-dim/40"
                     >
                       {item}
                     </motion.li>

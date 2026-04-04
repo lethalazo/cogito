@@ -1,6 +1,6 @@
 """Base agent class wrapping the Anthropic Claude SDK.
 
-Agents are singleton services — one definition serving all users, with strict per-user
+Agents are singleton services - one definition serving all users, with strict per-user
 data isolation enforced by wallet-based identity and client-side encryption.
 
 Turn lifecycle with encryption boundaries:

@@ -6,11 +6,11 @@
 
 Cogito is a **trustless, decentralized cognitive AI framework** with persistent memory, privacy-first architecture, and wallet-based identity. Three differentiators:
 
-1. **Persistent Memory** — learns and remembers across conversations via a cognition layer (memory, knowledge base, knowledge graph)
-2. **Decentralized Architecture** — no platform lock-in; SIWE wallet auth, client-side encryption, IPFS for user data, Arweave for shared knowledge
-3. **Privacy by Architecture** — user data encrypted client-side with wallet-derived keys (AES-256-GCM + HKDF-SHA256); server never sees plaintext
+1. **Persistent Memory** - learns and remembers across conversations via a cognition layer (memory, knowledge base, knowledge graph)
+2. **Decentralized Architecture** - no platform lock-in; SIWE wallet auth, client-side encryption, IPFS for user data, Arweave for shared knowledge
+3. **Privacy by Architecture** - user data encrypted client-side with wallet-derived keys (AES-256-GCM + HKDF-SHA256); server never sees plaintext
 
-**Status**: Active — Phase 1 MVP
+**Status**: Active - Phase 1 MVP
 
 ## Dev Commands
 
@@ -49,7 +49,7 @@ Client (Next.js) ──► FastAPI ──► Cognition Layer ──► Storage
 - **Auth**: SIWE (Sign-In with Ethereum) → JWT sessions
 - **Encryption**: AES-256-GCM with HKDF-SHA256 key derivation from wallet signatures
 - **Storage**: IPFS (mutable, encrypted user data) + Arweave (permanent, public shared cognition)
-- **Embeddings**: Dual model — sentence-transformers (local, private) + Voyage AI (public)
+- **Embeddings**: Dual model - sentence-transformers (local, private) + Voyage AI (public)
 - **LLM**: Claude via Anthropic SDK
 
 ## Project Structure
@@ -74,7 +74,7 @@ frontend/src/app/        # Next.js 15 + React 19 + Tailwind
 docs/                    # Architecture, cognition layer, privacy model, decentralization, agent framework, roadmap
 ```
 
-## Privacy Model — Two Data Scopes
+## Privacy Model - Two Data Scopes
 
 | Scope | What | Storage | Encryption | Embeddings |
 |-------|------|---------|------------|------------|
@@ -93,7 +93,7 @@ docs/                    # Architecture, cognition layer, privacy model, decentr
 - **Memory scoring**: `score = 0.4*relevance + 0.25*accuracy + 0.2*impact - 0.15*decay(age)`
 - **Agent turn lifecycle**: Pre-turn (decrypt + inject context) → LLM call (Claude + tools) → Post-turn (extract + encrypt + store)
 - **Agent definitions**: `SOUL.md` (identity/personality) + `config.yaml` (model, tools, constraints)
-- **Payproof integration**: `backend/cogito/payments/usdc.py` — on-chain USDC payment verification
+- **Payproof integration**: `backend/cogito/payments/usdc.py` - on-chain USDC payment verification
 
 ## Code Style
 
@@ -126,9 +126,9 @@ CHAIN_ID=1
 
 ## Documentation
 
-- `docs/architecture.md` — System layers, API routes, tech stack decisions
-- `docs/cognition-layer.md` — Memory, KB, Graph, embeddings, temporal model, sleep phase
-- `docs/privacy-model.md` — Two data scopes, encryption, threat model
-- `docs/decentralization.md` — SIWE, IPFS + Arweave, wallet-derived keys, self-hosted nodes
-- `docs/agent-framework.md` — BaseAgent, turn lifecycle, tool system, Claude SDK integration
-- `docs/roadmap.md` — Phase 1 (MVP) → Phase 2 (Specialists) → Phase 3 (Deep Cognition) → Phase 4 (Self-Hosted)
+- `docs/architecture.md` - System layers, API routes, tech stack decisions
+- `docs/cognition-layer.md` - Memory, KB, Graph, embeddings, temporal model, sleep phase
+- `docs/privacy-model.md` - Two data scopes, encryption, threat model
+- `docs/decentralization.md` - SIWE, IPFS + Arweave, wallet-derived keys, self-hosted nodes
+- `docs/agent-framework.md` - BaseAgent, turn lifecycle, tool system, Claude SDK integration
+- `docs/roadmap.md` - Phase 1 (MVP) → Phase 2 (Specialists) → Phase 3 (Deep Cognition) → Phase 4 (Self-Hosted)

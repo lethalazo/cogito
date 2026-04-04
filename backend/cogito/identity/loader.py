@@ -1,7 +1,7 @@
-"""Identity loader — load agent definitions and user profiles.
+"""Identity loader - load agent definitions and user profiles.
 
-Agent definitions (SOUL.md, config.yaml) are our code — loaded from the filesystem.
-User profiles are user-scoped data — stored encrypted on the user's storage backend.
+Agent definitions (SOUL.md, config.yaml) are our code - loaded from the filesystem.
+User profiles are user-scoped data - stored encrypted on the user's storage backend.
 """
 
 from pathlib import Path

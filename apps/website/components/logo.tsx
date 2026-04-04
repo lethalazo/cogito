@@ -38,14 +38,14 @@ export function Logo({ size = 40, className }: LogoProps) {
         fill="none"
       />
 
-      {/* Top particle — glow */}
+      {/* Top particle - glow */}
       <circle cx="45" cy="10" r="9" fill="url(#cogito-glow-top)" />
-      {/* Top particle — core */}
+      {/* Top particle - core */}
       <circle cx="45" cy="10" r="3.5" fill="#D4635E" />
 
-      {/* Bottom particle — glow */}
+      {/* Bottom particle - glow */}
       <circle cx="45" cy="70" r="9" fill="url(#cogito-glow-bottom)" />
-      {/* Bottom particle — core */}
+      {/* Bottom particle - core */}
       <circle cx="45" cy="70" r="3.5" fill="#D4635E" />
     </svg>
   )

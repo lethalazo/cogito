@@ -1,4 +1,4 @@
-"""FastAPI authentication middleware — session verification as a dependency.
+"""FastAPI authentication middleware - session verification as a dependency.
 
 Usage in routes:
     @app.get("/protected")

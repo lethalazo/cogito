@@ -1,4 +1,4 @@
-"""Cogito Basic — general-purpose cognition-enhanced agent."""
+"""Cogito Basic - general-purpose cognition-enhanced agent."""
 
 from cogito.agent.base import BaseAgent
 
@@ -9,7 +9,7 @@ class CogitoBasic(BaseAgent):
     A general-purpose, cognition-enhanced assistant that uses persistent memory,
     a knowledge base, and a knowledge graph to provide contextual, personalized responses.
 
-    This is a singleton agent — one instance per deployment, serving all users
+    This is a singleton agent - one instance per deployment, serving all users
     with wallet-based identity and client-side encryption for per-user data isolation.
     """
 

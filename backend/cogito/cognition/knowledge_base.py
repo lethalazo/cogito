@@ -1,9 +1,9 @@
-"""Knowledge base store — structured knowledge on decentralized storage.
+"""Knowledge base store - structured knowledge on decentralized storage.
 
-The knowledge base is part of the agent's shared cognition — the world model.
+The knowledge base is part of the agent's shared cognition - the world model.
 Stored on Arweave (permanent, public, immutable) or local storage for dev/self-hosted.
 
-KB entities are public and unencrypted — they contain world knowledge (entities, facts,
+KB entities are public and unencrypted - they contain world knowledge (entities, facts,
 models, scripts), never user-specific information. Self-hosted nodes read KB data from
 Arweave (read-only) to stay in sync with the shared world model.
 """
@@ -16,7 +16,7 @@ from cogito.storage.base import StorageBackend
 class KBStore:
     """Manages the knowledge base: Markdown files with YAML frontmatter.
 
-    Uses a StorageBackend for persistence — Arweave for production (permanent, public),
+    Uses a StorageBackend for persistence - Arweave for production (permanent, public),
     local filesystem for development and self-hosted nodes.
     """
 

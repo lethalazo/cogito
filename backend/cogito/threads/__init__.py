@@ -1,1 +1,1 @@
-"""Thread management — conversation context and history."""
+"""Thread management - conversation context and history."""

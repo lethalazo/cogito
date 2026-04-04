@@ -8,9 +8,9 @@ import { SectionParticles } from "@/components/canvas/section-particles"
 const FEATURES = [
   { feature: "Memory", cogito: "Persistent across conversations, scored and maintained", others: "Session-only or limited, platform-controlled" },
   { feature: "Data Privacy", cogito: "Client-side encrypted, wallet-derived keys", others: "Server-side storage, used for training" },
-  { feature: "Authentication", cogito: "Wallet-based — anonymous, portable", others: "Email/password, centralized identity" },
+  { feature: "Authentication", cogito: "Wallet-based - anonymous, portable", others: "Email/password, centralized identity" },
   { feature: "Data Storage", cogito: "Decentralized (yours) + permanent (public)", others: "Proprietary servers" },
-  { feature: "Lock-in", cogito: "None — export everything, run your own node", others: "Full platform lock-in" },
+  { feature: "Lock-in", cogito: "None - export everything, run your own node", others: "Full platform lock-in" },
   { feature: "Open Source", cogito: "Yes (Apache 2.0)", others: "No" },
 ]
 
@@ -31,7 +31,7 @@ export function ComparisonSection() {
           Cogito is not another chatbot wrapper.
         </motion.p>
 
-        {/* Header row — hidden on mobile */}
+        {/* Header row - hidden on mobile */}
         <div className="hidden md:grid grid-cols-[1fr_1.5fr_1.5fr] gap-4 mb-4 pb-3 border-b border-border">
           <span className="font-mono text-[10px] tracking-wider uppercase text-muted-foreground/60">
             Feature

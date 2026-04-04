@@ -1,4 +1,4 @@
-"""Wallet-derived key management — deterministic key derivation from wallet signatures.
+"""Wallet-derived key management - deterministic key derivation from wallet signatures.
 
 Key derivation flow:
 1. Client requests a deterministic message to sign (key_derivation_message)

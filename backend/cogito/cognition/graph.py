@@ -1,9 +1,9 @@
-"""Knowledge graph store — nodes and edges on decentralized storage.
+"""Knowledge graph store - nodes and edges on decentralized storage.
 
-The knowledge graph is part of the agent's shared cognition — the relational world model.
+The knowledge graph is part of the agent's shared cognition - the relational world model.
 Stored on Arweave (permanent, public) or local storage for dev/self-hosted.
 
-Like the KB, the graph is public and unencrypted — it contains world knowledge about
+Like the KB, the graph is public and unencrypted - it contains world knowledge about
 relationships between concepts, not user-specific information.
 """
 
@@ -15,7 +15,7 @@ from cogito.storage.base import StorageBackend
 class GraphStore:
     """Manages the knowledge graph: typed nodes connected by weighted edges.
 
-    Uses a StorageBackend for persistence — Arweave for production (permanent, public),
+    Uses a StorageBackend for persistence - Arweave for production (permanent, public),
     local filesystem for development and self-hosted nodes.
     """
 

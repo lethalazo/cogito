@@ -1,4 +1,4 @@
-"""FastAPI application and route definitions — wallet-authenticated, privacy-preserving API."""
+"""FastAPI application and route definitions - wallet-authenticated, privacy-preserving API."""
 
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel
@@ -8,7 +8,7 @@ from cogito.auth.session import Session
 
 app = FastAPI(
     title="Cogito",
-    description="Decentralized cognitive AI agent framework API — trustless, privacy-preserving",
+    description="Decentralized cognitive AI agent framework API - trustless, privacy-preserving",
     version="0.1.0",
 )
 
@@ -23,21 +23,21 @@ class NonceResponse(BaseModel):
 
 
 class SIWEAuthRequest(BaseModel):
-    """Request for POST /auth/verify — SIWE message + wallet signature."""
+    """Request for POST /auth/verify - SIWE message + wallet signature."""
 
     message: str
     signature: str
 
 
 class AuthResponse(BaseModel):
-    """Response for POST /auth/verify — JWT session token."""
+    """Response for POST /auth/verify - JWT session token."""
 
     token: str
     wallet_address: str
 
 
 class ChatRequest(BaseModel):
-    """Request for POST /chat — no user_id, identity comes from wallet session."""
+    """Request for POST /chat - no user_id, identity comes from wallet session."""
 
     message: str
     thread_id: str | None = None

@@ -1,4 +1,4 @@
-"""Web search tool — search the web for information."""
+"""Web search tool - search the web for information."""
 
 from typing import Any
 

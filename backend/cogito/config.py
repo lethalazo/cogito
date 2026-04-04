@@ -1,4 +1,4 @@
-"""Application configuration and settings — decentralized, privacy-preserving defaults."""
+"""Application configuration and settings - decentralized, privacy-preserving defaults."""
 
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -64,8 +64,8 @@ class PaymentSettings:
 class EmbeddingSettings:
     """Dual embedding model settings.
 
-    Public (shared cognition) → Voyage AI — high-quality embeddings for the world model.
-    Private (user-scoped) → sentence-transformers — local model, no data leaves the server.
+    Public (shared cognition) → Voyage AI - high-quality embeddings for the world model.
+    Private (user-scoped) → sentence-transformers - local model, no data leaves the server.
     """
 
     public_model: str = "voyage-3-lite"
@@ -74,7 +74,7 @@ class EmbeddingSettings:
 
 @dataclass
 class Settings:
-    """Global application settings — decentralized, privacy-preserving defaults."""
+    """Global application settings - decentralized, privacy-preserving defaults."""
 
     # API keys
     anthropic_api_key: str = ""

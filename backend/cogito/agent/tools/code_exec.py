@@ -1,4 +1,4 @@
-"""Code execution tool — execute Python code in a sandbox."""
+"""Code execution tool - execute Python code in a sandbox."""
 
 from typing import Any
 

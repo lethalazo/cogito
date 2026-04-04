@@ -1,1 +1,1 @@
-"""Identity layer — loading agent SOUL.md and user profiles."""
+"""Identity layer - loading agent SOUL.md and user profiles."""

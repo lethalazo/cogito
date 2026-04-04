@@ -1,1 +1,1 @@
-"""Agent tools — functions that agents can call during turns."""
+"""Agent tools - functions that agents can call during turns."""

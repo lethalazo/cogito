@@ -11,13 +11,13 @@ const PILLARS = [
     number: "01",
     title: "Persistent Memory",
     icon: "memory" as const,
-    body: "Cogito remembers across conversations. Observations, inferences, preferences — scored by relevance, ranked by importance, maintained over time. Every interaction makes it smarter. The more you use it, the better it understands you.",
+    body: "Cogito remembers across conversations. Observations, inferences, preferences - scored by relevance, ranked by importance, maintained over time. Every interaction makes it smarter. The more you use it, the better it understands you.",
   },
   {
     number: "02",
     title: "Self-Custodial Context",
     icon: "encryption" as const,
-    body: "Your data is encrypted client-side with end-to-end encryption. Encryption keys are derived from your wallet — the platform never sees plaintext. Your wallet is the key to your data. Not your keys, not your context.",
+    body: "Your data is encrypted client-side with end-to-end encryption. Encryption keys are derived from your wallet - the platform never sees plaintext. Your wallet is the key to your data. Not your keys, not your context.",
   },
   {
     number: "03",
@@ -51,7 +51,7 @@ export function SolutionSection() {
           transition={{ duration: 0.6 }}
           className="prose-body mb-16"
         >
-          Cognitive AI that owns nothing — because you own everything.
+          Cognitive AI that owns nothing - because you own everything.
         </motion.p>
 
         <motion.div

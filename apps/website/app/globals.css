@@ -48,7 +48,7 @@
   }
 }
 
-/* Film grain overlay — very subtle on light bg */
+/* Film grain overlay - very subtle on light bg */
 .grain-overlay::after {
   content: '';
   position: fixed;

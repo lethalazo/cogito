@@ -1,4 +1,4 @@
-"""Tests for the memory store — with encryption-aware operations."""
+"""Tests for the memory store - with encryption-aware operations."""
 
 import pytest
 

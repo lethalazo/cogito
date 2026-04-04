@@ -1,4 +1,4 @@
-"""USDC payments — pay-as-you-go pricing on Payproof rails."""
+"""USDC payments - pay-as-you-go pricing on Payproof rails."""
 
 from cogito.payments.usdc import PaymentVerification, check_balance, verify_payment
 

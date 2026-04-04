@@ -1,4 +1,4 @@
-"""Wallet authentication — SIWE (Sign-In with Ethereum) and session management."""
+"""Wallet authentication - SIWE (Sign-In with Ethereum) and session management."""
 
 from cogito.auth.middleware import get_current_session, wallet_address_from_session
 from cogito.auth.session import Session, create_session, revoke_session, verify_session

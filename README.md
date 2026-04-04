@@ -1,10 +1,10 @@
 # Cogito
 
-**Trustless, decentralized cognitive AI — with persistent memory, a hard knowledge base, and a knowledge graph.**
+**Trustless, decentralized cognitive AI - with persistent memory, a hard knowledge base, and a knowledge graph.**
 
-Cogito is a cognitive AI agent that doesn't just respond — it remembers, learns, and builds a structured understanding of you and the world over time. Every interaction makes it smarter. Your data stays yours — encrypted client-side, stored on IPFS, accessible only by your wallet. The agent's world model lives on Arweave — permanent, public, and permissionless.
+Cogito is a cognitive AI agent that doesn't just respond - it remembers, learns, and builds a structured understanding of you and the world over time. Every interaction makes it smarter. Your data stays yours - encrypted client-side, stored on IPFS, accessible only by your wallet. The agent's world model lives on Arweave - permanent, public, and permissionless.
 
-Access Cogito through a unified interface — browser and app — like ChatGPT or Gemini, but with real cognition, real privacy, and no platform lock-in.
+Access Cogito through a unified interface - browser and app - like ChatGPT or Gemini, but with real cognition, real privacy, and no platform lock-in.
 
 ## Architecture
 
@@ -69,12 +69,12 @@ Access Cogito through a unified interface — browser and app — like ChatGPT o
 
 | Traditional AI chatbots | Cogito |
 |------------------------|--------|
-| Stateless — forgets everything | Persistent memory across conversations |
+| Stateless - forgets everything | Persistent memory across conversations |
 | No real understanding | Knowledge base + knowledge graph = structured world model |
-| Platform lock-in | Decentralized — IPFS + Arweave, no single point of failure |
-| Centralized trust | Client-side encryption, wallet auth — platform never sees your data |
+| Platform lock-in | Decentralized - IPFS + Arweave, no single point of failure |
+| Centralized trust | Client-side encryption, wallet auth - platform never sees your data |
 | One-size-fits-all | Learns your preferences, adapts to you specifically |
-| Centralized identity | Wallet-based identity — anonymous, portable, self-sovereign |
+| Centralized identity | Wallet-based identity - anonymous, portable, self-sovereign |
 
 ## Privacy Model
 
@@ -150,22 +150,22 @@ cogito/
 
 | Phase | Focus |
 |-------|-------|
-| **1 — MVP** | Working cognition layer, wallet auth (SIWE), client-side encryption, IPFS user storage, Arweave shared cognition, dual embeddings, unified web interface |
-| **2 — Specialist Agents** | Domain-specific agents, agent switching, cross-agent cognition |
-| **3 — Deep Cognition** | World model, second-order effects, cause-effect simulations |
-| **4 — Self-Hosted** | Self-hosted Cogito nodes, cognitive portability, P2P deployment, USDC payments |
+| **1 - MVP** | Working cognition layer, wallet auth (SIWE), client-side encryption, IPFS user storage, Arweave shared cognition, dual embeddings, unified web interface |
+| **2 - Specialist Agents** | Domain-specific agents, agent switching, cross-agent cognition |
+| **3 - Deep Cognition** | World model, second-order effects, cause-effect simulations |
+| **4 - Self-Hosted** | Self-hosted Cogito nodes, cognitive portability, P2P deployment, USDC payments |
 
 See [docs/roadmap.md](docs/roadmap.md) for the full roadmap.
 
 ## Docs
 
-- [Architecture](docs/architecture.md) — System layers, data flow, tech stack
-- [Cognition Layer](docs/cognition-layer.md) — Memory, KB, Graph, scoring, maintenance
-- [Privacy Model](docs/privacy-model.md) — Encryption, key derivation, threat model
-- [Decentralization](docs/decentralization.md) — SIWE, IPFS, Arweave, Lit Protocol, self-hosted
-- [Agent Framework](docs/agent-framework.md) — Internal agent runtime (BaseAgent, tools, turn lifecycle)
-- [Roadmap](docs/roadmap.md) — Development phases
+- [Architecture](docs/architecture.md) - System layers, data flow, tech stack
+- [Cognition Layer](docs/cognition-layer.md) - Memory, KB, Graph, scoring, maintenance
+- [Privacy Model](docs/privacy-model.md) - Encryption, key derivation, threat model
+- [Decentralization](docs/decentralization.md) - SIWE, IPFS, Arweave, Lit Protocol, self-hosted
+- [Agent Framework](docs/agent-framework.md) - Internal agent runtime (BaseAgent, tools, turn lifecycle)
+- [Roadmap](docs/roadmap.md) - Development phases
 
 ## License
 
-Apache 2.0 — see [LICENSE](LICENSE).
+Apache 2.0 - see [LICENSE](LICENSE).

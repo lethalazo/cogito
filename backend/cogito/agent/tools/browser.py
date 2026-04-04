@@ -1,4 +1,4 @@
-"""Browser tool — navigate to a URL and extract content."""
+"""Browser tool - navigate to a URL and extract content."""
 
 from typing import Any
 

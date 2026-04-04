@@ -1,4 +1,4 @@
-"""SIWE (Sign-In with Ethereum) — trustless wallet-based authentication.
+"""SIWE (Sign-In with Ethereum) - trustless wallet-based authentication.
 
 Authentication flow:
 1. Client requests a nonce from GET /auth/nonce

@@ -31,10 +31,10 @@ No passwords, no emails, no centralized identity provider. Your wallet is your i
 
 ### Why SIWE?
 
-- **Trustless** — No centralized auth server to trust or compromise
-- **Portable** — Your identity works across any Cogito instance
-- **Anonymous** — No PII required, just a wallet address
-- **Standard** — EIP-4361, widely supported by wallets and dApps
+- **Trustless** - No centralized auth server to trust or compromise
+- **Portable** - Your identity works across any Cogito instance
+- **Anonymous** - No PII required, just a wallet address
+- **Standard** - EIP-4361, widely supported by wallets and dApps
 
 ## Storage: IPFS + Arweave
 
@@ -43,10 +43,10 @@ Two storage backends for two data scopes:
 ### User Data → IPFS (Mutable, Encrypted)
 
 User-scoped data (memories, preferences, threads) is stored on IPFS:
-- **Encrypted** — AES-256-GCM with wallet-derived key, before reaching the server
-- **Mutable** — IPNS provides mutable pointers for updates
-- **Pinned** — Data persists as long as it's pinned (by the user or a pinning service)
-- **Portable** — Users can migrate to any IPFS-compatible node
+- **Encrypted** - AES-256-GCM with wallet-derived key, before reaching the server
+- **Mutable** - IPNS provides mutable pointers for updates
+- **Pinned** - Data persists as long as it's pinned (by the user or a pinning service)
+- **Portable** - Users can migrate to any IPFS-compatible node
 
 ```
 User data flow:
@@ -57,11 +57,11 @@ User data flow:
 ### Shared Cognition → Arweave (Permanent, Public)
 
 The agent's world model (KB, graph) is stored on Arweave:
-- **Permanent** — Data is stored forever, pay once
-- **Public** — No encryption, this is world knowledge (no user-specific data)
-- **Immutable** — Append-only, updates create new transactions
-- **Queryable** — Tagged data, queryable via GraphQL
-- **Permissionless** — Anyone can read the agent's world model
+- **Permanent** - Data is stored forever, pay once
+- **Public** - No encryption, this is world knowledge (no user-specific data)
+- **Immutable** - Append-only, updates create new transactions
+- **Queryable** - Tagged data, queryable via GraphQL
+- **Permissionless** - Anyone can read the agent's world model
 
 ```
 Shared cognition flow:
@@ -94,19 +94,19 @@ The key never leaves the client. The server never sees the signature. Only the w
 ### Lit Protocol (Decentralized Key Management)
 
 For advanced access control (e.g., sharing encrypted data between wallets), Lit Protocol provides:
-- **Decentralized encryption** — No centralized key custodian
-- **Access control conditions** — On-chain conditions that must be met to decrypt
-- **Threshold cryptography** — No single Lit node has the full key
-- **Programmable** — Conditions can check wallet ownership, token balances, NFTs, etc.
+- **Decentralized encryption** - No centralized key custodian
+- **Access control conditions** - On-chain conditions that must be met to decrypt
+- **Threshold cryptography** - No single Lit node has the full key
+- **Programmable** - Conditions can check wallet ownership, token balances, NFTs, etc.
 
 ## Self-Hosted Nodes
 
 Users can run their own Cogito instance:
-- **Read shared cognition from Arweave** — Read-only access to the agent's world model
-- **Store user data locally** — No IPFS dependency required
-- **Maintain private internal cognition** — Self-hosted nodes can build on top of shared cognition
-- **Bring your own LLM** — Self-hosted nodes can use any LLM (Claude, local models, etc.)
-- **Pay via USDC** — Pay-as-you-go for compute on Payproof rails
+- **Read shared cognition from Arweave** - Read-only access to the agent's world model
+- **Store user data locally** - No IPFS dependency required
+- **Maintain private internal cognition** - Self-hosted nodes can build on top of shared cognition
+- **Bring your own LLM** - Self-hosted nodes can use any LLM (Claude, local models, etc.)
+- **Pay via USDC** - Pay-as-you-go for compute on Payproof rails
 
 ```
 Self-hosted architecture:
@@ -121,9 +121,9 @@ Self-hosted architecture:
 
 | Threat | Mitigation |
 |--------|-----------|
-| Platform reads user data | Client-side encryption — platform never sees plaintext |
+| Platform reads user data | Client-side encryption - platform never sees plaintext |
 | Platform loses user data | IPFS replication + user can re-pin from any node |
 | Platform goes offline | Self-hosted nodes read from Arweave (permissionless) |
-| Key compromise | Wallet-derived keys — rotate by signing with a new wallet |
+| Key compromise | Wallet-derived keys - rotate by signing with a new wallet |
 | Man-in-the-middle | HTTPS + SIWE nonces prevent replay attacks |
 | Platform censors users | Arweave data is permanent and censorship-resistant |

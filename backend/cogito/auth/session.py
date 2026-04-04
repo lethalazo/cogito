@@ -1,4 +1,4 @@
-"""Session management — JWT-based sessions backed by wallet authentication.
+"""Session management - JWT-based sessions backed by wallet authentication.
 
 After SIWE verification, a JWT session token is created. The token contains the
 wallet address and expiration time. Sessions can be revoked server-side.

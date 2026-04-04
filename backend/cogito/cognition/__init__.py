@@ -1,1 +1,1 @@
-"""Cognition layer — memory, knowledge base, knowledge graph, and supporting subsystems."""
+"""Cognition layer - memory, knowledge base, knowledge graph, and supporting subsystems."""

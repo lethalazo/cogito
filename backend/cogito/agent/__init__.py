@@ -1,1 +1,1 @@
-"""Agent framework — BaseAgent, tools, and concrete agents."""
+"""Agent framework - BaseAgent, tools, and concrete agents."""

@@ -1,10 +1,10 @@
-"""Memory store — persistent, scored, multi-tier memory with decentralized storage.
+"""Memory store - persistent, scored, multi-tier memory with decentralized storage.
 
 User-scoped memories are encrypted client-side and stored on IPFS (or local storage
 for self-hosted nodes). The platform never sees plaintext user memories.
 
 Shared memories (agent-tier, global-tier) are stored on Arweave as part of the
-agent's world model — public and permanent.
+agent's world model - public and permanent.
 
 During active sessions:
 1. Fetch encrypted memories from user storage → decrypt client-side
