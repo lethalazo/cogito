@@ -2,7 +2,7 @@
   "name": "cogito",
   "private": true,
   "scripts": {
-    "build": "pnpm --prefix apps/website install && pnpm --prefix apps/website run build && rm -rf out && cp -r apps/website/out .",
+    "build": "npm --prefix apps/website install && npm --prefix apps/website run build && rm -rf out && cp -r apps/website/out .",
     "dev:website": "pnpm --prefix apps/website dev"
   }
 }
