@@ -9,7 +9,7 @@ const STEPS = [
   { num: "01", title: "Connect Wallet", desc: "Your wallet is your identity. Sign in with Ethereum — no passwords, no emails." },
   { num: "02", title: "Chat", desc: "The AI remembers, learns, and builds structured understanding over time." },
   { num: "03", title: "Data Stays Encrypted", desc: "Everything personal is encrypted with your wallet-derived key. Platform never sees plaintext." },
-  { num: "04", title: "Knowledge Is Permanent", desc: "Shared cognition lives on Arweave — permanent, public, permissionless." },
+  { num: "04", title: "Knowledge Is Permanent", desc: "Shared cognition lives on permanent, public, permissionless infrastructure." },
 ]
 
 export function HowItWorksSection() {
@@ -62,8 +62,8 @@ export function HowItWorksSection() {
           During each conversation, Cogito follows a turn lifecycle. Before
           responding, it decrypts your memories and injects relevant context.
           After responding, it extracts new observations and learnings, encrypts
-          them with your wallet key, and stores them back to IPFS. World
-          knowledge is written to Arweave. Plaintext only exists in memory
+          them with your wallet key, and stores them back to decentralized storage. World
+          knowledge is written to permanent storage. Plaintext only exists in memory
           during your active session.
         </p>
       </motion.div>

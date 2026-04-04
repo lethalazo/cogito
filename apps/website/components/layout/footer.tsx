@@ -29,9 +29,6 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-8">
             <span className="font-mono text-xs tracking-wider uppercase text-muted-foreground/30">
-              GitHub
-            </span>
-            <span className="font-mono text-xs tracking-wider uppercase text-muted-foreground/30">
               X
             </span>
           </div>

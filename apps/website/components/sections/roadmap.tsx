@@ -14,9 +14,9 @@ const PHASES = [
     status: "active" as const,
     items: [
       "Working cognition layer — memory, knowledge base, knowledge graph",
-      "SIWE wallet authentication — your wallet is your identity",
-      "Client-side AES-256-GCM encryption — platform never sees plaintext",
-      "IPFS user storage + Arweave shared cognition",
+      "Wallet authentication — your wallet is your identity",
+      "Client-side encryption — platform never sees plaintext",
+      "Decentralized user storage + permanent shared cognition",
       "Dual embedding model — private local + public API",
       "Unified web interface",
     ],
@@ -28,7 +28,7 @@ const PHASES = [
     items: [
       "Domain-specific cognitive agents — research, code, finance",
       "Agent switching in the unified interface",
-      "Cross-agent shared cognition on Arweave",
+      "Cross-agent shared cognition on permanent storage",
       "Agent-to-agent invocation",
     ],
   },

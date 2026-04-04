@@ -17,13 +17,13 @@ const PILLARS = [
     number: "02",
     title: "Self-Custodial Context",
     icon: "encryption" as const,
-    body: "Your data is encrypted client-side with AES-256-GCM. Encryption keys are derived from your wallet — the platform never sees plaintext. Your wallet is the key to your data. Not your keys, not your context.",
+    body: "Your data is encrypted client-side with end-to-end encryption. Encryption keys are derived from your wallet — the platform never sees plaintext. Your wallet is the key to your data. Not your keys, not your context.",
   },
   {
     number: "03",
     title: "Decentralized Infrastructure",
     icon: "decentralization" as const,
-    body: "SIWE wallet authentication. User data on IPFS. World knowledge on Arweave — permanent, censorship-resistant, permissionless. No single point of failure. No platform lock-in. Run your own node if you want.",
+    body: "Wallet-based authentication. Encrypted user data on decentralized storage. World knowledge on permanent, censorship-resistant infrastructure. No single point of failure. No platform lock-in. Run your own node if you want.",
   },
 ]
 

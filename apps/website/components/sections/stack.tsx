@@ -8,15 +8,15 @@ import { SectionParticles } from "@/components/canvas/section-particles"
 const LAYERS = [
   {
     title: "Cognition Layer",
-    body: "Memory, Knowledge Base, and Knowledge Graph work together to give the AI persistent intelligence. Memories are scored by relevance, accuracy, and impact. The Knowledge Base stores structured world knowledge as versioned entities on Arweave. The Knowledge Graph captures relationships between concepts, entities, and events — enabling second-order reasoning.",
+    body: "Memory, Knowledge Base, and Knowledge Graph work together to give the AI persistent intelligence. Memories are scored by relevance, accuracy, and impact. The Knowledge Base stores structured world knowledge as versioned entities on permanent decentralized storage. The Knowledge Graph captures relationships between concepts, entities, and events — enabling second-order reasoning.",
   },
   {
     title: "Privacy Architecture",
-    body: "User data is encrypted client-side with AES-256-GCM before it reaches the server. Encryption keys are derived deterministically from wallet signatures using HKDF-SHA256. Embeddings for private data use a local model that never sends data to external APIs. Two data scopes — user-scoped and shared cognition — are separated by architecture, not policy.",
+    body: "Your data is encrypted on your device before it ever leaves. Encryption keys are derived from your wallet. Private data never touches external servers. Two data scopes — user-scoped and shared cognition — are separated by architecture, not policy.",
   },
   {
     title: "Decentralized Infrastructure",
-    body: "SIWE for authentication — no passwords, no emails, your wallet is your identity. IPFS for encrypted user data — mutable, portable, yours. Arweave for permanent world knowledge — censorship-resistant, permissionless. Lit Protocol for decentralized key management — no centralized custodian.",
+    body: "Wallet-based authentication — no passwords, no emails, your wallet is your identity. Decentralized storage for encrypted user data — mutable, portable, yours. Permanent storage for world knowledge — censorship-resistant, permissionless. Decentralized key management — no centralized custodian.",
   },
   {
     title: "Payments",
@@ -25,9 +25,9 @@ const LAYERS = [
 ]
 
 const TECH_BADGES = [
-  "Claude", "FastAPI", "SIWE", "AES-256-GCM", "HKDF-SHA256",
-  "IPFS", "Arweave", "Lit Protocol", "Voyage AI",
-  "sentence-transformers", "USDC", "Payproof", "Next.js",
+  "Claude", "API Layer", "Wallet Auth", "Encryption",
+  "Decentralized Storage", "Permanent Storage", "Key Management", "Embeddings",
+  "Local AI", "USDC", "Payproof", "Next.js",
 ]
 
 export function StackSection() {
