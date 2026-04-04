@@ -7,7 +7,7 @@ import { HeroNetwork } from "@/components/canvas/hero-network"
 
 export function Opening() {
   const { displayedText, isComplete } = useTypingEffect({
-    text: "The AI that remembers. Your data stays yours.",
+    text: "A living graph of thought. Sovereign. Encrypted. Compounding.",
     speed: 35,
     startDelay: 1200,
   })
@@ -63,7 +63,7 @@ export function Opening() {
           transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
           className="font-mono text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase text-accent mb-16 sm:mb-20"
         >
-          COGNITIVE AI
+          DECENTRALIZED COGNITION
         </motion.p>
 
         <motion.div

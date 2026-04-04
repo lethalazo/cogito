@@ -41,7 +41,7 @@ export function Footer() {
           className="mt-12 pt-8 border-t border-border"
         >
           <p className="font-serif text-sm text-accent/40 italic">
-            &ldquo;The AI that remembers.&rdquo;
+            &ldquo;Cognition that compounds.&rdquo;
           </p>
         </motion.div>
       </div>
